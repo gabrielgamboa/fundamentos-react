@@ -1,5 +1,9 @@
 import React from 'react';
 
 export default function App() {
-    return <h1>Componente App</h1>
+    return (
+        <React.Fragment>
+            <h1>Componente App</h1>
+        </React.Fragment>
+    );
 }
