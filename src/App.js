@@ -21,8 +21,8 @@ export default function App() {
     function handleRefresh() {
         setPost((prevState) => [...prevState, {
             id: Math.random(),
-            title: `Titulo ${posts.length}`,
-            subtitle: `Subtitulo ${posts.length}`,
+            title: `Titulo ${posts.length + 1}`,
+            subtitle: `Subtitulo ${posts.length + 1}`,
             likes: 50,
         }]);
 
@@ -54,9 +54,11 @@ export default function App() {
             {posts.map(post => (
                 <Post
                     key={post.id}
-                    title={post.title}
-                    subtitle={post.subtitle}
-                    likes={post.likes}
+                    post={{
+                        title: post.title,
+                        subtitle: post.subtitle,
+                        likes: post.likes,
+                    }}
                 >
                 </Post>
             ))}

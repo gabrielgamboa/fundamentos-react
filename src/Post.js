@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function Post({ title, subtitle, likes }) {
+export default function Post({ post }) {
     return (
         <>
             <article>
-                <strong>{title}</strong> <br />
-                <small>{subtitle}</small> <br />
-                Likes: {likes}
+                <strong>{post.title}</strong> <br />
+                <small>{post.subtitle}</small> <br />
+                Likes: {post.likes}
             </article>
             <br />
         </>
