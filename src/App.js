@@ -9,12 +9,14 @@ export default function App() {
             title: 'Titulo 1',
             subtitle: 'Subtitulo 1',
             likes: 30,
+            read: true
         },
         {
             id: Math.random(),
             title: 'Titulo 2',
             subtitle: 'Subtitulo 2',
             likes: 40,
+            read: false
         },
     ]);
 
@@ -64,6 +66,7 @@ export default function App() {
                         id: post.id,
                         title: post.title,
                         subtitle: post.subtitle,
+                        read: post.read,
                         likes: post.likes,
                     }}
                 >

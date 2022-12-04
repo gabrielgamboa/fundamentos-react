@@ -4,7 +4,9 @@ export default function Post({ post, onRemove }) {
     return (
         <>
             <article>
-                <strong>{post.title}</strong>
+                <strong>
+                    {post.read ? <s> {post.title} </s> : post.title}
+                </strong>
                 <button onClick={() => onRemove(post.id)}>
                     Remover
                 </button>
