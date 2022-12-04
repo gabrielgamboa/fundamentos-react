@@ -1,11 +1,16 @@
 import React from "react";
 
-export default function Post({ post }) {
+export default function Post({ post, onRemove }) {
     return (
         <>
             <article>
-                <strong>{post.title}</strong> <br />
-                <small>{post.subtitle}</small> <br />
+                <strong>{post.title}</strong>
+                <button onClick={() => onRemove(post.id)}>
+                    Remover
+                </button>
+                <br />
+                <small>{post.subtitle}</small>
+                <br />
                 Likes: {post.likes}
             </article>
             <br />

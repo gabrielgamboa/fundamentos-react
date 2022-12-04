@@ -40,6 +40,11 @@ export default function App() {
         // }]);
     }
 
+    function handleRemovePost(id) {
+        const updatedPosts = posts.filter(post => post.id !== id);
+        setPost((prevState) => prevState.filter(post => post.id !== id));
+    }
+
     return (
         <>
             <Header title="Jstack Blog">
@@ -53,8 +58,10 @@ export default function App() {
 
             {posts.map(post => (
                 <Post
+                    onRemove={handleRemovePost}
                     key={post.id}
                     post={{
+                        id: post.id,
                         title: post.title,
                         subtitle: post.subtitle,
                         likes: post.likes,
