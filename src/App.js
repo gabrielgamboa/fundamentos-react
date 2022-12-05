@@ -3,6 +3,7 @@ import Post from './Post';
 import Header from './Header';
 
 export default function App() {
+    const [theme, setTheme] = useState();
     const [posts, setPost] = useState([
         {
             id: Math.random(),
@@ -19,6 +20,10 @@ export default function App() {
             read: false
         },
     ]);
+
+    function handleToggleTheme() {
+        setTheme(prevState => prevState === 'dark' ? 'light' : 'dark');
+    }
 
     function handleRefresh() {
         setPost((prevState) => [...prevState, {
