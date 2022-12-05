@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "./ThemeContext";
 
 export default function Button({ onClick, children }) {
+    const { theme } = useContext(ThemeContext);
+
     return (
-        <button onClick={onClick}>
+        <button 
+            onClick={onClick}
+            style={{
+                color: theme === 'dark' ? '#fff' : '#000',
+                background:  theme === 'dark' ? '#000' : '#fff',
+            }}
+        >
             {children}
         </button>
     );

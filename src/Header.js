@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import Button from "./Button";
 
-export default function Header({title, children}) {
+import { ThemeContext } from "./ThemeContext";
+
+export default function Header({title, theme, children}) {
+    const { onToggleTheme } = useContext(ThemeContext);
+
     return (
         <>
             <h1>{title}</h1>
+                <Button onClick={onToggleTheme} theme={theme}>
+                    Mudar tema
+                </Button>
             {children}
         </>
     );
