@@ -12,14 +12,16 @@ export default function App() {
             title: 'Titulo 1',
             subtitle: 'Subtitulo 1',
             likes: 30,
-            read: true
+            read: true,
+            removed: false,
         },
         {
             id: Math.random(),
             title: 'Titulo 2',
             subtitle: 'Subtitulo 2',
             likes: 40,
-            read: false
+            read: false,
+            removed: false,
         },
     ]);
 
@@ -46,8 +48,9 @@ export default function App() {
     }
 
     function handleRemovePost(id) {
-        const updatedPosts = posts.filter(post => post.id !== id);
-        setPost((prevState) => prevState.filter(post => post.id !== id));
+        setPost((prevState) => prevState.map(
+            post => post.id === id ? { ...post, removed: true } : post
+        ));
     }
 
     return (
@@ -65,13 +68,7 @@ export default function App() {
                 <Post
                     onRemove={handleRemovePost}
                     key={post.id}
-                    post={{
-                        id: post.id,
-                        title: post.title,
-                        subtitle: post.subtitle,
-                        read: post.read,
-                        likes: post.likes,
-                    }}
+                    post={{ ...post }}
                 >
                 </Post>
             ))}
