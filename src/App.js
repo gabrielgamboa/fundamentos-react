@@ -3,6 +3,8 @@ import Post from './Post';
 import Header from './Header';
 import { ThemeProvider } from './ThemeContext';
 
+import styles from './App.css';
+
 export default function App() {
     const [posts, setPost] = useState([
         {
@@ -51,7 +53,7 @@ export default function App() {
     return (
         <ThemeProvider>
             <Header title="Jstack Blog">
-                <h2>
+                <h2 className={styles.title}>
                     Posts da semana
                     <button onClick={handleRefresh}>Atualizar</button>
                 </h2>
