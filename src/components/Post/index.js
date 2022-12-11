@@ -3,6 +3,8 @@ import PostHeader from "./PostHeader";
 
 import styles from "./Post.scss"
 
+import { Rate, Subtitle } from "./styles";
+
 export default function Post({ post, onRemove }) {
     return (
         <article className={post.removed ? styles.postDeleted : styles.post}>
@@ -15,10 +17,8 @@ export default function Post({ post, onRemove }) {
                     read: post.read,
                 }}
             ></PostHeader>
-            <br />
-            <small>{post.subtitle}</small>
-            <br />
-            Likes: {post.likes}
+            <Subtitle>{post.subtitle}</Subtitle>
+            <Rate>Media de likes: {post.likes / 2}</Rate>
         </article>
     );
 }
